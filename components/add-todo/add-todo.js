@@ -37,6 +37,13 @@ class AddTodo extends HTMLElement {
         this._input = this.shadowRoot.querySelector('input');
         this._addButton = this.shadowRoot.querySelector('todo-button');
 
+        this.addTodoEventListener();
+    }
+
+    /**
+     * dispatch event on click of add button
+     */
+    addTodoEventListener() {
         this._addButton.addEventListener('click', () => {
             this.dispatchEvent(new CustomEvent('addTodo'));
         })
