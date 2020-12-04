@@ -1,5 +1,7 @@
-const templateTodoItem = document.createElement('template');
-templateTodoItem.innerHTML = `
+// Import lit-html functions
+import { html, render } from 'lit-html';
+
+const template = html`
 <style>
   :host {
     display: flex;
@@ -44,7 +46,7 @@ class TodoItem extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
-        this.shadowRoot.appendChild(templateTodoItem.content.cloneNode(true));
+        render(template, this.shadowRoot);
 
         this._deleteTodoBtn = this.shadowRoot.querySelector('todo-button');
         this._completeTodoBtn = this.shadowRoot.querySelector('.completed');

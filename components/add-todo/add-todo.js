@@ -1,6 +1,7 @@
-const template = document.createElement('template');
+// Import lit-html functions
+import { html, render } from 'lit-html';
 
-template.innerHTML = `
+const template = html`
 <style>
 :host {
     display: flex;
@@ -29,10 +30,9 @@ template.innerHTML = `
 class AddTodo extends HTMLElement {
     constructor() {
         super();
-        this.innerHTML = "";
 
         this.attachShadow({ mode: 'open' });
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
+        render(template, this.shadowRoot);
 
         this._input = this.shadowRoot.querySelector('input');
         this._addButton = this.shadowRoot.querySelector('todo-button');

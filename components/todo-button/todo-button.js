@@ -1,5 +1,7 @@
-const templateBtn = document.createElement('template');
-templateBtn.innerHTML = `
+// Import lit-html functions
+import { html, render } from 'lit-html';
+
+const template = html`
 <style>
   button {
     background: #3f51b5;
@@ -26,11 +28,11 @@ templateBtn.innerHTML = `
 `;
 
 class TodoButton extends HTMLElement {
-    constructor() {
-        super();
-        this.attachShadow({ mode: 'open' });
-        this.shadowRoot.appendChild(templateBtn.content.cloneNode(true));
-    }
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+    render(template, this.shadowRoot);
+  }
 }
 
 window.customElements.define('todo-button', TodoButton);
