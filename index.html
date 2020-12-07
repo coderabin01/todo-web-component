@@ -40,10 +40,17 @@
     <script type="module" src="./components/todo-item/todo-item.js"></script>
     <script type="module" src="./components/add-todo/add-todo.js"></script>
     <script type="module" src="./app.js"></script>
+    <script type="module" src="./directives/hello.js"></script>
+    <script type="module" src="./directives/async.js"></script>
 </head>
+
 
 <body>
     <div class="container">
+
+        <hello-directive></hello-directive>
+        <async-directive></async-directive>
+
         <h3>Todo App</h3>
 
         <add-todo id="add-todo"></add-todo>
@@ -51,7 +58,5 @@
         <div id="todo-list"></div>
     </div>
 </body>
-
-
 
 </html>
